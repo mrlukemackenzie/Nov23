@@ -12,16 +12,15 @@ console.clear();
 
 let sections = document.querySelectorAll("section"),
   background = document.querySelectorAll(".bg"),
-  outerWrappers = gsap.utils.toArray(".outer"),
-  innerWrappers = gsap.utils.toArray(".inner"),
+  
+ 
   currentIndex = -1,
-  wrap = gsap.utils.wrap(0, sections.length - 1),
+  
   animating;
 
-let clamp = gsap.utils.clamp(0, sections.length - 1);
 
-gsap.set(outerWrappers, { yPercent: 100 });
-gsap.set(innerWrappers, { yPercent: -100 });
+
+
 
 function gotoSection(index, direction) {
   index = clamp(index); // make sure it's valid
@@ -34,19 +33,16 @@ function gotoSection(index, direction) {
   animating = true;
   let fromTop = direction === -1,
     dFactor = fromTop ? -1 : 1,
-    tl = gsap.timeline({
-      defaults: { duration: 1.25, ease: "power1.inOut" },
-      onComplete: () => (animating = false),
-    });
+   
   if (currentIndex >= 0) {
     // The first time this function runs, current is -1
-    gsap.set(sections[currentIndex], { zIndex: 0 });
+   
     tl.to(background[currentIndex], { yPercent: -15 * dFactor }).set(
       sections[currentIndex],
       { autoAlpha: 0 }
     );
   }
-  gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
+ 
   tl.fromTo(
     [outerWrappers[index], innerWrappers[index]],
     { yPercent: (i) => (i ? -100 * dFactor : 100 * dFactor) },

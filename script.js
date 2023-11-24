@@ -1,13 +1,3 @@
-/* 
-Inspirations: 
-1. https://dribbble.com/shots/4926949-Anghami-website-deisgn 
-2. https://codepen.io/GreenSock/pen/YzOBJbx 
-*/
-
-// GSAP
-
-
-
 console.clear();
 
 let sections = document.querySelectorAll("section"),

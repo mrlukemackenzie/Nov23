@@ -6,7 +6,7 @@ Inspirations:
 
 // GSAP
 
-gsap.registerPlugin(Observer);
+
 
 console.clear();
 
